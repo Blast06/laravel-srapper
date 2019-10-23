@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // a user has many groups
+    public function groups()
+    {
+        return $this->hasMany(Group::class)->orderBy('created_at','DESC');
+    }
 }
