@@ -19,7 +19,6 @@ class CreateGroupsTable extends Migration
             $table->string('type');
             $table->string('description');
             $table->string('image')->nullable();
-            $table->string('tags')->nullable()->default('no-tags');
             $table->timestamps();
 
             $table->unsignedInteger('user_id');

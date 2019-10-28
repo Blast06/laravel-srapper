@@ -8,8 +8,9 @@ class Category extends Model
 {
     //
 
+    // a category has many posts
     public function groups()
     {
-        return $this->belongsTo(Group::class);
+        return $this->hasMany(Group::class);
     }
 }

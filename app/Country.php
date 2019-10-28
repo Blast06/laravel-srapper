@@ -8,10 +8,10 @@ class Country extends Model
 {
     //
 
-    // a country belongs to a group
+    // a country has many groups
     public function groups()
     {
-        return $this->belongsTo(Group::class)->orderBy('created_at','DESC');
+        return $this->hasMany(Group::class)->orderBy('created_at','DESC');
     }
 
 }

@@ -11,19 +11,24 @@ class Group extends Model
     // every group has only ONE country
     public function countries()
     {
-        return $this->hasOne(Country::class);
+        return $this->belongsTo(Country::class);
         
     }
 
-    //every group has many categories
+    //a group belongs to a category
     public function categories()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     // a group belongs to a user
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use Goutte\Client;
 use function GuzzleHttp\describe_type;
 use Illuminate\Http\Request;
@@ -30,22 +31,25 @@ class ScrapperController extends Controller
 //        });
 
 
-        $crawler->filter('li.media')->each( function ( Crawler $card ){
-            $title = $card->filter('h4');
-            $tag = $card->filter('div.textopost > div')->first();
-            $description = $card->filter('div.textopost > a')->text();
-            $image = $card->filter('img.lazy-loaded')->first();
+//        $crawler->filter('li.media')->each( function ( Crawler $card ){
+//            $title = $card->filter('h4');
+//            $tag = $card->filter('div.textopost > div')->first();
+//            $description = $card->filter('div.textopost > a')->text();
+//            $image = $card->filter('img.lazy-loaded')->first();
 //            $image = $card->filter('div > div.pull-left.user-info')->first();
-            $link = $title->filter('a')->attr('href');
+//            $link = $title->filter('a')->attr('href');
+//
+//
+//
+//
+//            print $image->attr('src')  . '<br>';
+//
+//        });
 
 
+        $grupos = Group::all();
 
-
-            print $image->attr('src')  . '<br>';
-
-        });
-
-
+        dd($grupos);
 
     }
 }
