@@ -15,12 +15,22 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name', 50);
+            $table->string('type');
             $table->string('description');
-            $table->string('image');
-            $table->string('tags');
-            $table->string('country');
+            $table->string('image')->nullable();
+            $table->string('tags')->nullable()->default('no-tags');
             $table->timestamps();
+
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('country_id');
+            $table->unsignedInteger('category_id');
+
+
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('country_id')->references('id')->on('countries');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
