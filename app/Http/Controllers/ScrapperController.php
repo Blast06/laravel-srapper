@@ -6,6 +6,8 @@ use App\Group;
 use Goutte\Client;
 use function GuzzleHttp\describe_type;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades;
 use phpDocumentor\Reflection\DocBlock\Description;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -47,9 +49,8 @@ class ScrapperController extends Controller
 //        });
 
 
-        $grupos = Group::all();
+//        return UserResourc  Group::all());
 
-        dd($grupos);
 
     }
 }

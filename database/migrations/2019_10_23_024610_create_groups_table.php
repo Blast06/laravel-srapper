@@ -25,6 +25,9 @@ class CreateGroupsTable extends Migration
             $table->unsignedInteger('country_id');
             $table->unsignedInteger('category_id');
 
+//            TODO - ADD A TABLE
+            // a table for the type of group(whatsapp, instagram, facebook, discord)
+            // needs to be a table attached to this, to replace the "type" column
 
 
             $table->foreign('user_id')->references('id')->on('users');

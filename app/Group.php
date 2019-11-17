@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
+    protected $fillable = [
+        'name',
+        'type',
+        'description',
+        'image',
+        'user_id',
+        'country_id',
+        'category_id'
+    ];
     //
 
     // every group has only ONE country
@@ -14,6 +23,8 @@ class Group extends Model
         return $this->belongsTo(Country::class);
         
     }
+
+
 
     //a group belongs to a category
     public function categories()
