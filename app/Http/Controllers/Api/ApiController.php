@@ -8,12 +8,7 @@ use Illuminate\Http\Request;
 class ApiController extends Controller
 {
 
-//client id: 1
-//client secret1 NDIDZHDafWoEoHZcsiZp83URjiZnDPTXNThULlWd
-//
-//
-//client id: 2
-//client secret2 ynzgfQi1sL6z97hGfxRWRAHnOUMwJAC8K3xOSS4t
+
 /*
 * Class ApiController
 *
