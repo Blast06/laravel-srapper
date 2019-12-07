@@ -10,9 +10,15 @@ use App\Http\Resources\GroupResourceCollection;
 use App\User;
 use const Grpc\STATUS_OK;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
 {
+    // Activa el middleware en todo el controlador
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     //
 
     /**
@@ -42,7 +48,16 @@ class GroupController extends Controller
     public function store(CreateGroupRequest $request)
     {
         // create the group
-        $group = Group::create($request->all());
+
+        $group = auth()->user()->groups()->create([
+            'name' => $request['name'],
+            'description' => $request['description'],
+            'type' => $request['type'],
+            'category_id' => $request['category_id'],
+            'country_id' => $request['country_id']
+            ]);
+//        $group = Group::create($request->all());
+//        $group = DB::table('groups')->where('name',$request['name']);
 
         return new GroupResource($group);
     }
@@ -58,10 +73,12 @@ class GroupController extends Controller
 
     }
 
-    public function destroy(Group $group)
+    public function destroy(Group $group, $id)
     {
 
 //        auth()->user()->group
+
+
         $group->delete();
 
         return response()->json();
