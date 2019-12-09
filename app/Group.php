@@ -8,12 +8,12 @@ class Group extends Model
 {
     protected $fillable = [
         'name',
-        'type',
         'description',
         'image',
         'user_id',
         'country_id',
-        'category_id'
+        'category_id',
+        'type_id'
     ];
     //
 
@@ -41,5 +41,10 @@ class Group extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function types()
+    {
+        return $this->belongsTo(Type::class);
     }
 }

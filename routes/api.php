@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/groups/countries/{id}', 'api\GroupController@getGroupsByCountry');
 Route::apiResource('/groups', 'api\GroupController');
-//Route::middleware('auth:api')->get('/user', function (Request $request){
-//    return $request->user();
-//});
+Route::apiResource('/tags', 'api\TagController');
+Route::apiResource('/countries', 'api\CountryController');
+
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'Auth\AuthController@login');

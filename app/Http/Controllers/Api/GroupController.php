@@ -17,7 +17,8 @@ class GroupController extends Controller
     // Activa el middleware en todo el controlador
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth:api')->except('index', 'getGroupsByCountry',
+            'getGroupsByType', 'getGroupsByCategory', 'getGroupsByTag');
     }
     //
 
@@ -29,6 +30,8 @@ class GroupController extends Controller
     {
         return new GroupResourceCollection(Group::paginate());
 
+//        $groups = Group::whereCountryId(1)->get();
+//        return new GroupResourceCollection($groups);
     }
 
     /**
@@ -82,6 +85,28 @@ class GroupController extends Controller
         $group->delete();
 
         return response()->json();
+
+    }
+
+    public function getGroupsByCountry($id) : GroupResourceCollection
+    {
+
+        $groups = Group::whereCountryId($id)->get();
+        return new GroupResourceCollection($groups);
+
+    }
+    public function getGroupsByType($id) : GroupResourceCollection
+    {
+
+        $groups = Group::whereTypeId($id)->get();
+        return new GroupResourceCollection($groups);
+
+    }
+    public function getGroupsByTag($id) : GroupResourceCollection
+    {
+
+        $groups = Group::whereTagId($id)->get();
+        return new GroupResourceCollection($groups);
 
     }
 
