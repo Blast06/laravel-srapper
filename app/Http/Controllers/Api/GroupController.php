@@ -95,6 +95,12 @@ class GroupController extends Controller
         return new GroupResourceCollection($groups);
 
     }
+
+    public function getGroupsByCategory($id) : GroupResourceCollection
+    {
+        $groups = Group::whereCategoryId($id)->get();
+        return new GroupResourceCollection($groups);
+    }
     public function getGroupsByType($id) : GroupResourceCollection
     {
 

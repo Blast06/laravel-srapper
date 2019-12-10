@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/groups/countries/{id}', 'api\GroupController@getGroupsByCountry');
+Route::get('/groups/categories/{id}', 'api\GroupController@getGroupsByCategory');
+Route::get('/groups/tags/{id}', 'api\GroupController@getGroupsByTag');
+Route::get('/groups/types/{id}', 'api\GroupController@getGroupsByType');
 Route::apiResource('/groups', 'api\GroupController');
 Route::apiResource('/tags', 'api\TagController');
 Route::apiResource('/countries', 'api\CountryController');
