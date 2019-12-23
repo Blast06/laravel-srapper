@@ -59,8 +59,7 @@ class GroupController extends Controller
             'category_id' => $request['category_id'],
             'country_id' => $request['country_id']
             ]);
-//        $group = Group::create($request->all());
-//        $group = DB::table('groups')->where('name',$request['name']);
+
 
         return new GroupResource($group);
     }
@@ -78,9 +77,6 @@ class GroupController extends Controller
 
     public function destroy(Group $group, $id)
     {
-
-//        auth()->user()->group
-
 
         $group->delete();
 
@@ -101,6 +97,7 @@ class GroupController extends Controller
         $groups = Group::whereCategoryId($id)->get();
         return new GroupResourceCollection($groups);
     }
+
     public function getGroupsByType($id) : GroupResourceCollection
     {
 
@@ -108,12 +105,12 @@ class GroupController extends Controller
         return new GroupResourceCollection($groups);
 
     }
+
     public function getGroupsByTag($id) : GroupResourceCollection
     {
 
         $groups = Group::whereTagId($id)->get();
         return new GroupResourceCollection($groups);
-
     }
 
 }

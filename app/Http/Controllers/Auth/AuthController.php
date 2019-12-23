@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -15,6 +16,7 @@ class AuthController extends Controller
             'name'     => 'required|string',
             'email'    => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed',
+            'password_confirmation' => 'required|string|same:password'
         ]);
         $user = new User([
             'name'     => $request->name,
