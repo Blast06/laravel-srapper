@@ -24,6 +24,7 @@ class CreateGroupsTable extends Migration
             $table->unsignedInteger('type_id');
             $table->unsignedInteger('country_id');
             $table->unsignedInteger('category_id');
+            $table->unsignedInteger('tag_id');
 
 
 
@@ -32,6 +33,7 @@ class CreateGroupsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 

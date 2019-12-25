@@ -19,8 +19,8 @@ class ScrapperController extends Controller
     {
         $client = new Client();
 
-        $crawler = $client->request('GET', 'https://www.igrupos.com/whatsapp');
-//        $crawler->filter('li.media')->each(function (Crawler $card) {
+        $crawler = $client->request('GET', 'https://techbrij.com/copy-extract-html-drop-down-list-options-text');
+//        $crawler->filter('h1')->each(function (Crawler $card) {
 //
 //            $title = $card->filter('h4')->first();
 //            $tag = $card->filter('div.textopost > div')->first();
@@ -29,24 +29,27 @@ class ScrapperController extends Controller
 //            $image = $card->selectImage('Platicas shidas')->image();
 //
 //
-//            print $card->text() . '<br><br>';
+//
+//            print $card ;
 //        });
 
 
-//        $crawler->filter('li.media')->each( function ( Crawler $card ){
-//            $title = $card->filter('h4');
-//            $tag = $card->filter('div.textopost > div')->first();
-//            $description = $card->filter('div.textopost > a')->text();
-//            $image = $card->filter('img.lazy-loaded')->first();
-//            $image = $card->filter('div > div.pull-left.user-info')->first();
-//            $link = $title->filter('a')->attr('href');
-//
-//
-//
-//
+        $crawler->filter('div.site-content > div.content-area > main > article')->each( function ( Crawler $card ){
+            $title = $card->filter('header > h1');
+            $tag = $card->filter('div.textopost > div')->first();
+            $description = $card->filter('div.textopost > a')->text();
+            $image = $card->filter('img.lazy-loaded')->first();
+            $image = $card->filter('div > div.pull-left.user-info')->first();
+            $link = $title->filter('a')->attr('href');
+
+
+
+
+
 //            print $image->attr('src')  . '<br>';
-//
-//        });
+
+            print $title->first()->text();
+        });
 
 
 //        return UserResourc  Group::all());

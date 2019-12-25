@@ -20,8 +20,8 @@ class CreateGroupTagTable extends Migration
             $table->integer('tag_id')->unsigned();
             $table->timestamps();
 
-            //relation
 
+            //relations
             $table->foreign('group_id')->references('id')->on('groups')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
