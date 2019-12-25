@@ -1,2 +1,6 @@
 *.sqlite
 *.sqlite-journal
+/phpdocker
+.editorconfig
+/.idea
+
