@@ -9,6 +9,7 @@ use App\Http\Resources\GroupResource;
 use App\Http\Resources\GroupResourceCollection;
 use App\User;
 use const Grpc\STATUS_OK;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -48,20 +49,29 @@ class GroupController extends Controller
      * @param CreateGroupRequest $request
      * @return GroupResource
      */
-    public function store(CreateGroupRequest $request)
+    public function store(CreateGroupRequest $request) : GroupResource
     {
         // create the group
+       $imageUrl = "https://groups-app.s3-us-west-1.amazonaws.com/";
+       $imageUrl = $imageUrl .  \request()->file('image')->store(
+            'groups',
+            's3'
+        );
+
 
         $group = auth()->user()->groups()->create([
             'name' => $request['name'],
             'description' => $request['description'],
-            'type' => $request['type'],
+            'image' => $imageUrl,
+            'type_id' => $request['type_id'],
+            'tag_id' => $request['tag_id'],
             'category_id' => $request['category_id'],
             'country_id' => $request['country_id']
             ]);
 
 
         return new GroupResource($group);
+
     }
 
     public function update(Group $group, CreateGroupRequest $request, User $user): GroupResource
@@ -75,12 +85,20 @@ class GroupController extends Controller
 
     }
 
-    public function destroy(Group $group, $id)
+    public function destroy(Group $group, $id, User $user)
     {
 
-        $group->delete();
+        if ($this->authorize('update', $user->group)){
+            $group->delete();
+            return response()->json();
+    }
 
-        return response()->json();
+    return response()->json(['status' => 401,
+                             'message' => 'Cant delete group'
+        ]);
+
+
+
 
     }
 
