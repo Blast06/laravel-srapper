@@ -13,7 +13,8 @@ class Group extends Model
         'user_id',
         'country_id',
         'category_id',
-        'type_id'
+        'type_id',
+        'tag_id'
     ];
     //
 

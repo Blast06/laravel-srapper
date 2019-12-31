@@ -53,7 +53,7 @@ class GroupPolicy
      */
     public function update(User $user, Group $group)
     {
-        return $user->id == $group->user_id;
+        return $user->id === $group->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class GroupPolicy
      */
     public function delete(User $user, Group $group)
     {
-        //
+        return $user->id === $group->user_id;
     }
 
     /**

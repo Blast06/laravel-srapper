@@ -25,7 +25,7 @@ class CreateGroupRequest extends FormRequest
     {
         return [
             'name'          => 'required|min:4|max:80',
-            'image'         => 'required|image',
+            'image'         => 'image',
             'description'   => 'required|min:8|max:220'
 
         ];

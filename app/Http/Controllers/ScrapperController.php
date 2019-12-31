@@ -18,41 +18,40 @@ class ScrapperController extends Controller
     public function index(Request $request)
     {
         $client = new Client();
-
-        $crawler = $client->request('GET', 'https://techbrij.com/copy-extract-html-drop-down-list-options-text');
-//        $crawler->filter('h1')->each(function (Crawler $card) {
 //
-//            $title = $card->filter('h4')->first();
+//        $crawler = $client->request('GET', 'https://bestfreegiveaways.wordpress.com/');
+//        $crawler->filter('body > #page')->each(function (Crawler $card) {
+//
+//            $title = $card->filter('header > h1 > a')->first();
 //            $tag = $card->filter('div.textopost > div')->first();
 //            $description = $card->filter('div.textopost > a')->first();
 //            $image = $card->filter('div')->children('img.lazy-loaded')->last();
 //            $image = $card->selectImage('Platicas shidas')->image();
 //
-//
-//
-//            print $card ;
+//            print $card->text() . "<br><br>" ;
 //        });
 
 
-        $crawler->filter('div.site-content > div.content-area > main > article')->each( function ( Crawler $card ){
-            $title = $card->filter('header > h1');
+        $client = new Client();
+
+        $crawler = $client->request('GET', 'https://www.igrupos.com/whatsapp');
+        $crawler->filter('#pagewrap div div div div div ul li')->each(function (Crawler $card) {
+
+            $title = $card->filter('div div.media-body > div > h4');
             $tag = $card->filter('div.textopost > div')->first();
             $description = $card->filter('div.textopost > a')->text();
             $image = $card->filter('img.lazy-loaded')->first();
             $image = $card->filter('div > div.pull-left.user-info')->first();
             $link = $title->filter('a')->attr('href');
+            print $card->text() . "<br><br>";
 
 
-
-
-
-//            print $image->attr('src')  . '<br>';
-
-            print $title->first()->text();
         });
 
 
-//        return UserResourc  Group::all());
+
+
+
 
 
     }

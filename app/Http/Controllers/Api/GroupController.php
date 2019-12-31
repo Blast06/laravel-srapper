@@ -39,7 +39,7 @@ class GroupController extends Controller
      * @param Group $group
      * @return GroupResource
      */
-    public function show( Group $group) : GroupResource
+    public function show(Group $group): GroupResource
     {
 
         return new GroupResource($group);
@@ -49,15 +49,25 @@ class GroupController extends Controller
      * @param CreateGroupRequest $request
      * @return GroupResource
      */
-    public function store(CreateGroupRequest $request) : GroupResource
+    public function store(CreateGroupRequest $request): GroupResource
     {
         // create the group
-       $imageUrl = "https://groups-app.s3-us-west-1.amazonaws.com/";
-       $imageUrl = $imageUrl .  \request()->file('image')->store(
-            'groups',
-            's3'
-        );
 
+
+//        dd($request->validated());
+        $imageUrl = "https://groups-app.s3-us-west-1.amazonaws.com/";
+        if ($request->has('image')) {
+
+
+            $imageUrl = $imageUrl . \request()->file('image')->store(
+                    'groups',
+                    's3'
+                );
+
+
+        }
+
+//        dd($request['tag_id']);
 
         $group = auth()->user()->groups()->create([
             'name' => $request['name'],
@@ -67,42 +77,56 @@ class GroupController extends Controller
             'tag_id' => $request['tag_id'],
             'category_id' => $request['category_id'],
             'country_id' => $request['country_id']
-            ]);
+        ]);
 
 
         return new GroupResource($group);
 
     }
 
-    public function update(Group $group, CreateGroupRequest $request, User $user): GroupResource
+    public function update(Group $group, CreateGroupRequest $request, User $user)
     {
 
         //TODO
         // verify if the group belongs to the editor
-        $this->authorize('update', $user->group);
+//        if ($user->can('update', $group)){
+//            $group->update($request->all());
+//            return new GroupResource($group);
+//
+//        } else {
+//            return \response()->json([
+//                'status' => 401,
+//                'message' => 'Can update group'
+//            ]);
+//        }
+
+        $this->authorize('update', $group);
         $group->update($request->all());
         return new GroupResource($group);
 
+
+
     }
 
-    public function destroy(Group $group, $id, User $user)
+    public function destroy(Group $group, User $user)
     {
 
-        if ($this->authorize('update', $user->group)){
+        if ($this->authorize('delete', $user->group)) {
             $group->delete();
-            return response()->json();
-    }
+            return response()->json([
+                'status' => 201,
+                'message' => 'Group deleted succesfully'
+            ]);
+        }
 
-    return response()->json(['status' => 401,
-                             'message' => 'Cant delete group'
+        return response()->json(['status' => 401,
+            'message' => 'Cant delete group'
         ]);
 
 
-
-
     }
 
-    public function getGroupsByCountry($id) : GroupResourceCollection
+    public function getGroupsByCountry($id): GroupResourceCollection
     {
 
         $groups = Group::whereCountryId($id)->get();
@@ -110,13 +134,13 @@ class GroupController extends Controller
 
     }
 
-    public function getGroupsByCategory($id) : GroupResourceCollection
+    public function getGroupsByCategory($id): GroupResourceCollection
     {
         $groups = Group::whereCategoryId($id)->get();
         return new GroupResourceCollection($groups);
     }
 
-    public function getGroupsByType($id) : GroupResourceCollection
+    public function getGroupsByType($id): GroupResourceCollection
     {
 
         $groups = Group::whereTypeId($id)->get();
@@ -124,7 +148,7 @@ class GroupController extends Controller
 
     }
 
-    public function getGroupsByTag($id) : GroupResourceCollection
+    public function getGroupsByTag($id): GroupResourceCollection
     {
 
         $groups = Group::whereTagId($id)->get();
