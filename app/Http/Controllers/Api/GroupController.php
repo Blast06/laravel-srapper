@@ -101,7 +101,7 @@ class GroupController extends Controller
 //        }
 
         $this->authorize('update', $group);
-        $group->update($request->all());
+        $group->update($request->validated());
         return new GroupResource($group);
 
 
