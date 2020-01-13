@@ -12,3 +12,5 @@ npm-debug.log
 yarn-error.log
 ngrok.exe
 .idea/workspace.xml
+.bash.exe.stackdump
+/phpdocker
