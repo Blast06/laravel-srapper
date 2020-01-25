@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bf5d51b-79fc-4ae6-af94-06034c1d02ab" name="Default Changelist" comment="" />
+    <list default="true" id="4bf5d51b-79fc-4ae6-af94-06034c1d02ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
           <entry key="gitignore" value="2" />
           <entry key="js" value="4" />
           <entry key="json" value="4" />
-          <entry key="php" value="263" />
+          <entry key="php" value="264" />
           <entry key="scss" value="1" />
           <entry key="yml" value="1" />
         </counts>
@@ -57,7 +59,7 @@
           <entry key="Blade" value="8" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="4" />
-          <entry key="PHP" value="255" />
+          <entry key="PHP" value="256" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="SCSS" value="1" />
           <entry key="YAML" value="1" />
@@ -71,7 +73,7 @@
           <entry key="gitignore" value="98" />
           <entry key="js" value="108" />
           <entry key="json" value="21" />
-          <entry key="php" value="10194" />
+          <entry key="php" value="10198" />
           <entry key="txt" value="65" />
         </counts>
       </usages-collector>
@@ -80,7 +82,7 @@
           <entry key=".env file" value="106" />
           <entry key="JSON" value="21" />
           <entry key="JavaScript" value="108" />
-          <entry key="PHP" value="10194" />
+          <entry key="PHP" value="10198" />
           <entry key="PLAIN_TEXT" value="171" />
         </counts>
       </usages-collector>
@@ -103,11 +105,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+            <state relative-caret-position="81">
+              <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+              <folding>
+                <element signature="e#7#35#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -189,7 +203,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_10_28_021610_create_groups_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ScrapperController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/CreateGroupRequest.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Group.php" />
         <option value="$PROJECT_DIR$/app/Policies/GroupPolicy.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
@@ -200,6 +213,7 @@
         <option value="$PROJECT_DIR$/app/Http/Middleware/Cors.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/config/cors.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
       </list>
     </option>
   </component>
@@ -493,7 +507,7 @@
       <workItem from="1579468768386" duration="2311000" />
       <workItem from="1579647278372" duration="903000" />
       <workItem from="1579750842069" duration="972000" />
-      <workItem from="1579984908298" duration="2389000" />
+      <workItem from="1579984908298" duration="2873000" />
     </task>
     <task id="LOCAL-00001" summary="deleted some dir(phpdocker) and files(bash.exe)">
       <created>1578880380226</created>
@@ -513,10 +527,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248624000" />
+    <option name="totallyTimeSpent" value="249108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29154077" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -533,7 +548,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007553" side_tool="true" weight="0.32852563" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.5048077" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.5048077" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -838,13 +853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -868,8 +876,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+        <state relative-caret-position="81">
+          <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <element signature="e#7#35#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
