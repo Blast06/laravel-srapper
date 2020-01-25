@@ -19,7 +19,7 @@ class GroupController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api')->except('index', 'getGroupsByCountry',
-            'getGroupsByType', 'getGroupsByCategory', 'getGroupsByTag');
+            'getGroupsByType', 'getGroupsByCategory', 'getGroupsByTag', 'show');
     }
     //
 
