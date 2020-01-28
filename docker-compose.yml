@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  web:
+    container_name: ngi
+    build:
+      context: ./
+      dockerfile: docker/nginx/Dockerfile
+    volumes:
+      - ./:/var/www
+    ports:
+      - 8095:80
+    links:
+      - app
+  app:
+    container_name: php_app
+    build:
+      context: ./
+      dockerfile: docker/php-fpm/Dockerfile
+    volumes:
+      - ./:/var/www
+    ports:
+      - 9000:9000
+    links:
+      - db
+    environment:
+      - DB_PORT=5432
+      - DB_HOST=db
+      - DB_CONNECTION=pgsql
+  db:
+    container_name: pgs_db
+    image: postgres:9-alpine
+    environment:
+      - POSTGRES_PASSWORD=blaster07
+    ports:
+      - 5432:5432
