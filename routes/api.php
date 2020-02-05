@@ -18,9 +18,11 @@ Route::get('/groups/countries/{id}', 'Api\GroupController@getGroupsByCountry');
 Route::get('/groups/categories/{id}', 'Api\GroupController@getGroupsByCategory');
 Route::get('/groups/tags/{id}', 'Api\GroupController@getGroupsByTag');
 Route::get('/groups/types/{id}', 'Api\GroupController@getGroupsByType');
+Route::get('/users/me', 'Api\UserController@me');
 Route::apiResource('/groups', 'Api\GroupController');
 Route::apiResource('/tags', 'Api\TagController');
 Route::apiResource('/countries', 'Api\CountryController');
+Route::apiResource('/users', 'Api\UserController');
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
