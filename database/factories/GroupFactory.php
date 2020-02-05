@@ -15,6 +15,7 @@ $factory->define(Group::class, function (Faker $faker) {
         'tag_id' => rand(1,10),
         'description' => $faker->text(50),
         'image' => $faker->imageUrl(250,250),
+        'link' => $faker->imageUrl(150,150),
         'name' => $title,
     ];
 });
