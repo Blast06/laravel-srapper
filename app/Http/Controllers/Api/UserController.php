@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function me()
     {
-        $user = \auth()->user();
+        $user = \auth('api')->user();
         return response($user);
     }
 
