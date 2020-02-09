@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api')->except('index', 'show');
+        $this->middleware('auth:api')->except('index','show');
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function me()
     {
-        $user = Auth::user();
+        $user = \auth()->user();
         return response($user);
     }
 
