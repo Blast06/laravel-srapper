@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         $user = \auth()->user();
 
-        return response($user);
+        return response()->json($user);
     }
 
     /**
